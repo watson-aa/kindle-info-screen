@@ -35,7 +35,7 @@ def generate_image():
             #print nextbus_data[x-1]['predictions'][y-1]['datetime']
             #prediction_time = datetime.strptime(nextbus_data[x-1]['predictions'][y-1]['datetime'], '%Y-%m-%d %H:%M:%S')
             if len(nextbus_data[x-1]['predictions']) >= y:
-                prediction_time = datetime.strftime(nextbus_data[x-1]['predictions'][y-1]['datetime'], '%-I:%m %p')
+                prediction_time = datetime.strftime(nextbus_data[x-1]['predictions'][y-1]['datetime'], '%-I:%M %p')
                 svg = svg.replace('LINE_' + str(x) + '_TIME_' + str(y), prediction_time)
             else:
                 svg = svg.replace('LINE_' + str(x) + '_TIME_' + str(y), 'N/A')
