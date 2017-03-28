@@ -14,14 +14,11 @@ except ImportError:
     # Python 2
     from urllib2 import urlopen
 
-#
-# Geographic location
-#
-
-#latitude = 42.243405
-#longitude = -70.9407787
-
-
+_ICON = {
+    'few': 'rain1',
+    'sct': 'rain2',
+    'ra': 'rain3'
+}
 
 #
 # Download and parse weather data, based on latitude/longitude
@@ -63,7 +60,6 @@ def getWeather(latitude, longitude):
     highs = [None]*4
     lows = [None]*4
     for x, item in enumerate(xml_temperatures):
-        #output['day_1']['minimum'] = 72
         for type in ['maximum', 'minimum']:
             if item.getAttribute('type') == type:
                 values = item.getElementsByTagName('value')
@@ -76,8 +72,7 @@ def getWeather(latitude, longitude):
     for i in range(len(xml_icons)):
         firstChild = xml_icons[i].firstChild
         if firstChild is not None:
-            weather_data['day_' + str(i+1)]['icon'] = firstChild.nodeValue.split('/')[-1].split('.')[0].rstrip('0123456789')
-            #icons[i] = firstChild.nodeValue.split('/')[-1].split('.')[0].rstrip('0123456789')
+            weather_data['day_' + str(i+1)]['icon'] = _ICON[firstChild.nodeValue.split('/')[-1].split('.')[0].rstrip('0123456789')]
 
     # Parse dates
     xml_days = dom.getElementsByTagName('start-valid-time')
@@ -88,60 +83,3 @@ def getWeather(latitude, longitude):
             break
 
     return weather_data
-
-    '''
-    nextbus_config = [
-        {
-            'line': '220',
-            'stop': '3611'
-        },
-        {
-            'line': '221',
-            'stop': '3651'
-        }
-    ]
-
-    #
-    # Preprocess SVG
-    #
-
-    # Open SVG to process
-    output = codecs.open('weather-script-preprocess.svg', 'r', encoding='utf-8').read()
-
-    # Insert icons and temperatures
-    output = output.replace('ICON_ONE',icons[0])
-    output = output.replace('HIGH_ONE',str(highs[0]))
-    output = output.replace('LOW_ONE',str(lows[0]))
-
-    for x, config in enumerate(nextbus_config):
-        output = output.replace('LINE_' + str(x+1) + '_LABEL', config['line'])
-        nextbus_xml = urlopen('http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=mbta&r=' + config['line'] + '&s=' + config['stop']).read()
-
-        dom = minidom.parseString(nextbus_xml)
-        base = dom.getElementsByTagName('predictions')[0]
-        stopTitle = base.getAttribute('stopTitle')
-        routeTitle = base.getAttribute('routeTitle')
-        predictions = dom.getElementsByTagName('prediction')
-        predictions.sort(key=lambda x: x.getAttribute('epochTime'))
-        for y, prediction in enumerate(predictions):
-            datetime.strptime(time.ctime(float(prediction.getAttribute('epochTime')) / 1000), '%a %b %d %H:%M:%S %Y')
-
-            prediction_time = datetime.strptime(time.ctime(float(prediction.getAttribute('epochTime')) / 1000), '%a %b %d %H:%M:%S %Y') #'%-I:%m %p'
-            output = output.replace('LINE_' + str(x+1) + '_TIME_' + str(y+1), datetime.strftime(prediction_time, '%-I:%m %p'))
-        for z in range(len(predictions) + 1, 2+1):
-            output = output.replace('LINE_' + str(x+1) + '_TIME_' + str(z), 'N/A   ')
-
-
-    '''
-
-    '''
-    # Insert days of week
-    one_day = datetime.timedelta(days=1)
-    days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    output = output.replace('DAY_THREE',days_of_week[(day_one + 2*one_day).weekday()]).replace('DAY_FOUR',days_of_week[(day_one + 3*one_day).weekday()])
-    '''
-
-    '''
-    # Write output
-    codecs.open('weather-script-output.svg', 'w', encoding='utf-8').write(output)
-    '''
