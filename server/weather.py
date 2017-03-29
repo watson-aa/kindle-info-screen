@@ -17,7 +17,33 @@ except ImportError:
 _ICON = {
     'few': 'rain1',
     'sct': 'rain2',
-    'ra': 'rain3'
+    'ra': 'rain3',
+    'hi_shwrs': 'rain3',
+    'raip': 'frozen_rain',
+    'skc': 'sunny',
+    'bkn': 'partly_sunny',
+    'few': 'partly_sunny',
+    'sct': 'partly_sunny',
+    'ovc': 'cloudy',
+    'fg': 'fog',
+    'smoke': 'fog',
+    'fzra': 'mix',
+    'ip': 'hail',
+    'mix': 'mix',
+    'mix': 'hail',
+    'rasn': 'mix',
+    'shra': 'rain3',
+    'tsra': 'tstorm',
+    'sn': 'snow',
+    'wind': 'windy',
+    'hi_shwrs': 'rain1',
+    'fzrara': 'mix',
+    'hi_tsra': 'tstorm',
+    'ra1': 'rain1',
+    'ra': 'rain3',
+    'nsvrtsra': 'tornado',
+    'dust': 'dusty',
+    'mist': 'fog'
 }
 
 #
