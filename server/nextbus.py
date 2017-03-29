@@ -36,7 +36,7 @@ def getPredictions(agency, line, stop):
         tmp_prediction = {}
 
         datetime.strptime(time.ctime(float(prediction.getAttribute('epochTime')) / 1000), '%a %b %d %H:%M:%S %Y')
-        tmp_prediction['datetime'] = datetime.strptime(time.ctime(float(prediction.getAttribute('epochTime')) / 1000), '%a %b %d %H:%M:%S %Y') #'%-I:%m %p'
+        tmp_prediction['datetime'] = datetime.strptime(time.ctime(float(prediction.getAttribute('epochTime')) / 1000), '%a %b %d %H:%M:%S %Y')
         tmp_prediction['seconds'] = int(prediction.getAttribute('seconds'))
         tmp_prediction['minutes'] = int(prediction.getAttribute('minutes'))
         nextbus_data['predictions'].append(tmp_prediction)
