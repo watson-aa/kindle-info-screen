@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
+    <style type="text/css">@import url(http://fonts.googleapis.com/css?family=Nunito);</style>
+
     <g id="blizzard">
       <defs>
         <style>.cls-1{fill: rgb(255,255,255);}.cls-2{fill: rgb(0,0,0);}.cls-3{fill: rgb(46,167,224);}</style>
@@ -486,7 +488,7 @@
       </g>
     </g>
   </g>
-  <g font-family="Avenir">
+  <g font-family="Nunito">
     <text y="52.256058" x="76.039063" style="font-size: 35px; text-anchor: middle; white-space: pre;">Today:</text>
     <text y="121.70689" x="446.26932" style="font-size: 35px; text-anchor: middle; white-space: pre;">High:</text>
     <text y="209.20592" x="526.72095" style="font-size: 100px; text-anchor: end; white-space: pre;">HIGH_ONE</text>
