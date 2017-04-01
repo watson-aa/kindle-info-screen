@@ -23,6 +23,9 @@ def generate_image():
     # Open SVG to process
     svg = codecs.open('preprocess.svg', 'r', encoding='utf-8').read()
 
+    # Insert day
+    svg = svg.replace('CURRENT_DAY', datetime.strftime(datetime.now(), '%A - %B %d - %Y'))
+
     # insert weather
     svg = svg.replace('ICON_ONE', weather_data['day_1']['icon'])
     svg = svg.replace('HIGH_ONE', str(weather_data['day_1']['maximum']))
