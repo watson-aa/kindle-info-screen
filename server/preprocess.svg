@@ -488,7 +488,7 @@
       </g>
     </g>
   </g>
-  <g style="font-family: Arial Black">
+  <g style="font-family:'Arial Black';font-weight:900;font-style:normal;font-stretch:normal;font-variant:normal;font-size:35px;text-anchor:middle;text-align:center;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal">
     <text y="40.851" x="300.0" style="font-size: 35px; font-weight: bold; text-anchor: middle; white-space: pre;">CURRENT_DAY</text>
     <text y="162.707" x="446.269" style="font-size: 35px; text-anchor: middle; white-space: pre;">High:</text>
     <text y="250.206" x="522.721" style="font-size: 100px; text-anchor: end; white-space: pre;">HIGH_ONE</text>
