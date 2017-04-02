@@ -1,8 +1,8 @@
 #!/usr/bin/python2
 
 from xml.dom import minidom
-from datetime import datetime, time
-#import time
+from datetime import datetime
+import time
 
 try:
     # Python 3
